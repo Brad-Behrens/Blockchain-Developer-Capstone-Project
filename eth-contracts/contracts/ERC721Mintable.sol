@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.5.5;
 
 import 'openzeppelin-solidity/contracts/utils/Address.sol';
 import 'openzeppelin-solidity/contracts/drafts/Counters.sol';
@@ -176,7 +176,7 @@ contract ERC721 is Pausable, ERC165 {
         require(to != from, "Cannot transfer token to the token holder.");
 
         // TODO require the msg sender to be the owner of the contract or isApprovedForAll() to be true
-        require(msg.sender == from || isApprovedFromAll(from, msg.sender), "Not owner or has not been approved.");
+        require(msg.sender == from || isApprovedForAll(from, msg.sender), "Not owner or has not been approved.");
 
         // TODO add 'to' address to token approvals
         _tokenApprovals[tokenId] = to;
@@ -276,7 +276,7 @@ contract ERC721 is Pausable, ERC165 {
     function _transferFrom(address from, address to, uint256 tokenId) internal {
 
         // TODO: require from address is the owner of the given token
-        require(from == ownerOf(tokenId)), "Not the owner of the Token ID.");
+        require(from == ownerOf(tokenId), "Not the owner of the Token ID.");
 
         // TODO: require token is being transfered to valid address
         require(to != address(0), "Recipient address is invalid.");
@@ -546,7 +546,8 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
         // see https://github.com/oraclize/ethereum-api/blob/master/oraclizeAPI_0.5.sol for strConcat()
     // require the token exists before setting
     function setTokenURI(uint256 tokenId) internal {
-
+        require(_exists(tokenId), "Token does not exist.");
+        _tokenURIs[tokenId] = strConcat(_baseTokenURI, uint2str(tokenId));
     }
 
 }
@@ -560,8 +561,13 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
 
-contract RealEstateMarketERC721Token is ERC721Metadata {
+contract RealEstateMarketERC721Token is ERC721Metadata("Estate Digital Rights", "EDR", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/") {
 
+    function mint(address to, uint256 tokenId) public onlyOwner returns(bool) {
+        super._mint(to, tokenId);
+        super.setTokenURI(tokenId);
+        return true;
+    }
 }
 
 

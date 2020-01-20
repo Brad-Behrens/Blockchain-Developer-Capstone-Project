@@ -30,6 +30,7 @@ pragma solidity >=0.4.21 <0.6.0;
 //  - make sure the solution is unique (has not been used before)
 //  - make sure you handle metadata as well as tokenSuplly
 
+
   
 
 
