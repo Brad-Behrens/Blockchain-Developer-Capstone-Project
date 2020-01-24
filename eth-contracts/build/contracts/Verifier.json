@@ -72226,12 +72226,12 @@
         }
       },
       "links": {},
-      "address": "0x8a5944884f1A27Cd70050A448CB95ff8dD721bfa",
-      "transactionHash": "0x4e2d8595afd97620fc7d4539035595b2cf2ec4b52d1399c0dae9e8ba0d5e99bf"
+      "address": "0x2cC4c52ce66113b6eD7273707828cBcea4Cd23D1",
+      "transactionHash": "0xcbea400e8fcd091818590b6927f2a8950738fce54c9778ddac4589cc5a481cf6"
     }
   },
   "schemaVersion": "3.0.19",
-  "updatedAt": "2020-01-23T08:54:39.210Z",
+  "updatedAt": "2020-01-24T08:37:00.091Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

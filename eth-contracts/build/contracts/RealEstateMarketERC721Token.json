@@ -30423,12 +30423,12 @@
         }
       },
       "links": {},
-      "address": "0x76A21088a51bF9a959807E64CDf57F96b0ecC35a",
-      "transactionHash": "0x67f939bdad52bcc24ab587ebb305d7093078911eba51693346669bdd69b6b8a0"
+      "address": "0xFb1aeD916b7aA13D40270B8AEf44eb2E94875D41",
+      "transactionHash": "0x38ef40464ec439096470288785fccf556f5cbc977bfe8a9a9f4ae5f01d6ed198"
     }
   },
   "schemaVersion": "3.0.19",
-  "updatedAt": "2020-01-23T08:54:39.174Z",
+  "updatedAt": "2020-01-24T08:37:00.017Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

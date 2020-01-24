@@ -31,7 +31,6 @@ contract SolnSquareverifier is RealEstateMarketERC721Token {
 
     // TODO Create a function to add the solutions to the array and emit the event
     function addSolution(uint[2] memory a, uint[2][2] memory b, uint[2] memory c, uint[2] memory input) public {
-
         // Solution hash.
         bytes32 solutionHash = keccak256(abi.encode(a, b, c, input));
         // Verify solution is unique.
@@ -44,10 +43,8 @@ contract SolnSquareverifier is RealEstateMarketERC721Token {
             solutionIndex: solutionHash,
             solutionAddress: msg.sender
         });
-
         // Add solution to unique solutions mapping.
         uniqueSolutions[solutionHash] = newSolution;
-
         // Emit solution added event.
         emit SolutionAdded(solutionHash, msg.sender);
     }
@@ -55,9 +52,10 @@ contract SolnSquareverifier is RealEstateMarketERC721Token {
     // TODO Create a function to mint new NFT only after the solution has been verified
     //  - make sure the solution is unique (has not been used before)
     //  - make sure you handle metadata as well as tokenSupply
-    function mintVerifiedToken(address to, uint256 tokenId, bytes32 solutionHash) public returns(bool) {
-       // Verifications to mint token.
-       require(uniqueSolutions[solutionHash].solutionAddress != address(0), "Unique Solution does not exist.");
+    function mintVerifiedToken(address to, uint256 tokenId, uint[2] memory a, uint[2][2] memory b, uint[2] memory c, uint[2] memory input) public returns(bool) {
+       // Verify solution is correct & unique.
+       bytes32 solutionHash = keccak256(abi.encode(a, b, c, input));
+       require(uniqueSolutions[solutionHash].solutionAddress != address(0), "Solution does not exist.");
        // Mint token.
        super.mint(to, tokenId);
        return true;
