@@ -55,7 +55,7 @@ contract SolnSquareverifier is RealEstateMarketERC721Token {
     function mintVerifiedToken(address to, uint256 tokenId, uint[2] memory a, uint[2][2] memory b, uint[2] memory c, uint[2] memory input) public returns(bool) {
        // Verify solution is correct & unique.
        bytes32 solutionHash = keccak256(abi.encode(a, b, c, input));
-       require(uniqueSolutions[solutionHash].solutionAddress != address(0), "Solution does not exist.");
+       require(uniqueSolutions[solutionHash].solutionAddress == address(0), "Solution does not exist.");
        // Mint token.
        super.mint(to, tokenId);
        return true;
