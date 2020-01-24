@@ -19,8 +19,8 @@
  */
 
  const HDWalletProvider = require('truffle-hdwallet-provider');
- const ENDPOINT = "https://rinkeby.infura.io/v3/96052cac4fa24ba383d12d61a8bdddfc";
- const MNEMONIC = "rent actor lesson garden tape project day family reduce food sweet network";
+ const ENDPOINT = "https://rinkeby.infura.io/v3/47a64d018fa94d93a1d96cfe58ad20d6";
+ const MNEMONIC = "wet shift group cushion fold tortoise float auto aim nut ribbon nature";
 
 module.exports = {
   /**
