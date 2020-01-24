@@ -501,7 +501,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     string private _baseTokenURI;
 
     // TODO: create private mapping of tokenId's to token uri's called '_tokenURIs'
-    mapping(uint => string) _tokenURIs;
+    mapping(uint => string) private _tokenURIs;
 
     bytes4 private constant _INTERFACE_ID_ERC721_METADATA = 0x5b5e139f;
     /*
@@ -521,15 +521,15 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
-    function getName() external view returns(string memory) {
+    function name() external view returns(string memory) {
         return _name;
     }
     
-    function  getSymbol() external view returns(string memory) {
+    function  symbol() external view returns(string memory) {
         return _symbol;
     }
 
-    function getbaseToenURI() external view returns(string memory) {
+    function baseTokenURI() external view returns(string memory) {
         return _baseTokenURI;
     }
 
@@ -545,7 +545,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     // TIP #2: you can also use uint2str() to convert a uint to a string
         // see https://github.com/oraclize/ethereum-api/blob/master/oraclizeAPI_0.5.sol for strConcat()
     // require the token exists before setting
-    function setTokenURI(uint256 tokenId) internal {
+    function _setTokenURI(uint256 tokenId) internal {
         require(_exists(tokenId), "Token does not exist.");
         _tokenURIs[tokenId] = strConcat(_baseTokenURI, uint2str(tokenId));
     }
@@ -565,7 +565,7 @@ contract RealEstateMarketERC721Token is ERC721Metadata("Estate Digital Rights", 
 
     function mint(address to, uint256 tokenId) public onlyOwner returns(bool) {
         super._mint(to, tokenId);
-        super.setTokenURI(tokenId);
+        _setTokenURI(tokenId);
         return true;
     }
 }
