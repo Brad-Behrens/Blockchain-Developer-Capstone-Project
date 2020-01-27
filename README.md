@@ -2,7 +2,7 @@
 
 ## Description
 
-The Capstone porject aimed to build a decentralized housing service to eliminate any form of errors or fraud based in paper-based property titles. A solution to this is to create non-fungible tokens using Ethereum's ERC721 standard and list such tokens on the OpenSea marketplace for non-fungible digital assets.
+The Capstone project aimed to build a decentralized housing service to eliminate any form of errors or fraud based in paper-based property titles. A solution to this is to create non-fungible tokens using Ethereum's ERC721 standard and list such tokens on the OpenSea marketplace for non-fungible digital assets.
 
 ## Getting Started
 
