@@ -6,7 +6,37 @@ The Capstone porject aimed to build a decentralized housing service to eliminate
 
 ## Getting Started
 
+How to setup a development enviroment for this project.
 
+Clone this repository:
+
+```
+git clone https://github.com/Brad-Behrens/Blockchain-Developer-Capstone-Project.git
+```
+
+cd into repo & install project requirements:
+
+```
+npm install
+```
+
+launch ganache-cli:
+
+```
+ganache-cli
+```
+
+cd in eth-contracts, compile contracts & migrate:
+
+```
+truffle migrate --reset --compile-all
+```
+
+run tests on eth-contracts:
+
+```
+truffle test
+```
 
 ## Contract Addresses & OpenSea Storefront
 
