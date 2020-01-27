@@ -40,7 +40,7 @@ truffle test
 
 ## Contract Addresses & OpenSea Storefront
 
-The contract abi's can be found in the .json files in the /build folder.
+The contract abi's can be found in the .json files in the eth-contracts/build folder.
 
 ### RealEstateMarketERC721Token
 
